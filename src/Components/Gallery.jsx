@@ -46,7 +46,7 @@ const TourList = ({ tours, setTours, onRemove }) => {
     if (tours.length === 0) {
         return (
             <div className="no-tours">
-                <h2>No tours available at the moment.</h2>
+                <h2>No tours left. Refresh to reload.</h2>
                 <button onClick={loadTours} className="refresh-btn">
                     Refresh Tours
                 </button>
