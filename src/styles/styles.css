@@ -1,0 +1,128 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f3fc; /* Soft purple background */
+    color: #4b0082; /* Elegant purple text */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    color: #4b0082; /* Bold purple headings */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Tour List */
+.tour-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Tour Card */
+.tour-card {
+    background-color: #e6dff1; /* Light purple background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.tour-card:hover {
+    transform: scale(1.05); /* Subtle hover effect */
+}
+
+/* Tour Image */
+.tour-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #d1c4e9; /* Purple border */
+}
+
+/* Tour Info */
+.tour-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.tour-info h4 {
+    margin: 10px 0;
+}
+
+.tour-price {
+    color: #6a0dad; /* Darker purple for price */
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Read More Button */
+.read-more-btn {
+    background-color: #d1c4e9; /* Soft lavender */
+    color: #4b0082;
+    margin-top: 10px;
+}
+
+.read-more-btn:hover {
+    background-color: #b39ddb; /* Slightly darker lavender */
+    transform: translateY(-2px);
+}
+
+/* Remove Button */
+.remove-btn {
+    background-color: #ba68c8; /* Complementary purple */
+    color: white;
+    margin-top: 10px;
+}
+
+.remove-btn:hover {
+    background-color: #9c27b0; /* Dark lavender */
+    transform: translateY(-2px);
+}
+
+/* Refresh Button */
+.refresh-btn {
+    background-color: #9575cd; /* Purple tone */
+    color: white;
+    margin: 20px auto;
+    display: block;
+}
+
+.refresh-btn:hover {
+    background-color: #7e57c2; /* Darker purple */
+    transform: translateY(-2px);
+}
+
+/* Destination Selector */
+.destination-selector {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.destination-selector select {
+    padding: 10px;
+    border: 2px solid #d1c4e9; /* Purple border */
+    border-radius: 5px;
+    background-color: #f3e5f5; /* Light purple */
+    color: #4b0082;
+    font-size: 14px;
+}
+
+.destination-selector select:focus {
+    outline: none;
+    border-color: #ba68c8; /* Highlighted purple */
+}
