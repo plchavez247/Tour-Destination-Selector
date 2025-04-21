@@ -1,28 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const DestinationSelector = ({ tours, onDestinationSelect }) => {
-    const [selectedDestination, setSelectedDestination] = useState('');
+// Dropdown component to filter tours by destination
+const DestinationSelector = ({ tours, onDestinationChange }) => {
+    const [selectedDestination, setSelectedDestination] = useState("");
 
-    const handleChange = (event) => {
-        const destination = event.target.value;
-        setSelectedDestination(destination);
-        onDestinationSelect(destination);
+    // Generate a list of unique destinations from the tour names
+    const uniqueDestinations = [
+        "All Destinations",
+        ...new Set(
+            tours
+                .map((tour) => {
+                    const nameParts = tour.name.split(" "); // Split the name into words
+                    return nameParts[2] || "Unknown"; // Use the third word or "Unknown" if unavailable
+                })
+                .filter((destination) => destination.trim() !== "") // Exclude empty or whitespace-only strings
+        ),
+    ];
+
+    // Handle changes in the dropdown selection
+    const handleDropdownChange = (event) => {
+        const selectedValue = event.target.value;
+        setSelectedDestination(selectedValue); // Update the local state
+        onDestinationChange(selectedValue === "All Destinations" ? "" : selectedValue); // Notify parent component
     };
 
-    const uniqueTours = [...new Set(tours)];
-
     return (
-        <div>
-            <label htmlFor="destination-select">Select a Destination: </label>
+        <div className="destination-selector">
+            <label htmlFor="destination" className="destination-label">
+                🌍 Choose Your Destination:
+            </label>
             <select
-                id="destination-select"
+                id="destination"
                 value={selectedDestination}
-                onChange={handleChange}
+                onChange={handleDropdownChange}
+                className="destination-dropdown"
             >
-                <option value="">--Choose a destination--</option>
-                {uniqueTours.map((tour, index) => (
-                    <option key={index} value={tour}>
-                        {tour}
+                {uniqueDestinations.map((destination) => (
+                    <option key={destination} value={destination}>
+                        {destination}
                     </option>
                 ))}
             </select>
